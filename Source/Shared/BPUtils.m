@@ -182,7 +182,7 @@ static BOOL quiet = NO;
             NSString *key = [[node attributeForName:@"key"] stringValue];
             NSString *value = [[node attributeForName:@"value"] stringValue];
             if ([[[node attributeForName:@"isEnabled"] stringValue] boolValue]) {
-                argsAndEnv[@"env"][key] = value;
+                argsAndEnv[@"env"][key] = [self expandEnvironmentVariable:value withSchemePath:schemePath];
             }
 
         }
